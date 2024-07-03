@@ -1,0 +1,11 @@
+.header {
+  background-color: #ff5722;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.title {
+  color: #fff;
+  font-size: 2em;
+  margin: 0;
+}

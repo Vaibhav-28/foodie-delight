@@ -1,0 +1,9 @@
+.restaurants-list {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.reataurant-card-main {
+  width: min-content;
+}
