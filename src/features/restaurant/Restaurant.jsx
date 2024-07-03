@@ -4,19 +4,21 @@ import { useQuery } from "react-query";
 import defaultImg from "../../assets/default-image.png";
 import { Link } from "react-router-dom";
 import "./Restaurant.css";
+import { useSnackbar } from "notistack";
 
 const getRestaurant = (id) => {
   return axios.get(`http://localhost:4000/restaurants/${id}`);
 };
 
 const Restaurant = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const { id } = useParams();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["restaurant", id],
     queryFn: () => getRestaurant(id),
   });
   if (isError) {
-    return <h2>{error?.message}</h2>;
+    enqueueSnackbar(error?.message,{variant:"error"});
   }
   if (isLoading) {
     return <h2>Loading ...</h2>;
